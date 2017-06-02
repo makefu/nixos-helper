@@ -2,7 +2,9 @@ dist: trusty
 addons:
   chrome: stable
 before_install:
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 https://distrowatch.com/table.php?distribution=nixos
+  - ( google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 https://distrowatch.com/table.php?distribution=nixos) &
+  - sleep 15
+  - pkill google-chrome-stable
 
 notifications:
   irc:
